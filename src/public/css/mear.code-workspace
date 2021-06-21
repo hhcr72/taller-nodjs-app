@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../mern-stack-task"
+		},
+		{
+			"path": "../../../../tictactoe-react-app"
+		},
+		{
+			"path": "../../../../Sneaker-Monitors-master"
+		}
+	],
+	"settings": {}
+}

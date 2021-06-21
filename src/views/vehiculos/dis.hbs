@@ -1,0 +1,105 @@
+<!-- formulario de alta de clientes -->
+<div class="container">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" id="alta">
+                <h3 class="modal-title"> Datos de Cliente</h3>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <td><b>ID:</b> {{ veh.[0].id_cliente }}</td>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <td><b>Nombre:</b> {{ veh.[0].nombre }}</td>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <td><b>Dirección:</b> {{ veh.[0].direccion }}</td>
+                        </div>
+                        <div class="col">
+                            <td><b>Colonia:</b> {{ veh.[0].colonia }}</td>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <td><b>Ciudad:</b> {{ veh.[0].ciudad }}</td>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <td><b>Teléfono:</b> {{ veh.[0].telefono }}</td>
+                        </div>
+                        <div class="col">
+                            <td><b>Celular:</b> {{ veh.[0].celular}}</td>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-2">
+        <h4>Vehiculos registrados de {{ veh.[0].nombre }}</h4>
+        <div class="table-responsive">
+            <div class="row">
+                <div class="col" align="right">
+                    <table id="MyTable" class="table table-sm table-hover table-bordered table-lights table-striped"
+                        cellspacing="0">
+                        <thead class="thead-light" align="center">
+                            <th>Id</th>
+                            <th>Marca</th>
+                            <th>Tipo</th>
+                            <th>Color</th>
+                            <th>Modelo</th>
+                            <th>Serie</th>
+                            <th>Placas</th>
+                            <th>Sub-Menu
+                                <a href="/vehiculos/add" title="Nuevo Registro" class="btn btn-primary btn-sm"><i
+                                        class="far fa-plus-square"></i></a>
+                            </th>
+                        </thead>
+                        <tbody>
+                            {{#each veh }}
+                            <tr>
+                                <td> {{ id_veh }}</td>
+                                <td>{{ marca }}</td>
+                                <td>{{ tipo }}</td>
+                                <td>{{ color }}</td>
+                                <td>{{ modelo }}</td>
+                                <td>{{ serie }}</td>
+                                <td>{{ placas }}</td>
+
+                                <td align="center">
+
+                                    <a href="/vehiculos/edit/{{ id_veh }}" onclick="" title="Editar registro"
+                                        class="btn btn-info btn-sm">
+                                        <i class="far fa-edit"></i>
+                                    </a>
+                                    <a onclick="return BorrarCliente({{id_veh}})" title="Borrar Registro"
+                                        class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,79 @@
+<script>
+    function BorrarCliente(id_cliente) {
+        Swal.fire({
+        title: 'Estas Segur@ de eliminar el cliente '+id_cliente+' ?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Confirmar'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            window.location = '/clientes/delete/'+id_cliente;
+            Swal.fire(
+            'Cliente Eliminado con Exito!',
+            )
+        }
+        })
+    }
+
+</script>
+
+<div class="container mt-2" >
+<h3>ABC de Clientes <i class="fas fa-user"></i></h3>
+
+<div class="table-responsive">
+    <div class="row">
+            <div class="col" align="right">
+                <table  id="MyTable" class="table table-sm table-hover table-bordered table-lights table-striped" cellspacing="0">
+                    <thead class="thead-light" align="center">
+                        <th>Id</th>
+                        <th >Nombre</th>
+                        <th >Dirección</th>
+                        <th>Telefono</th>
+                        <th>Celular</th>
+                        <th>Sub-Menu 
+                            <a href="/clientes/add" title="Nuevo Registro" class="btn btn-primary btn-sm"><i class="far fa-plus-square"></i></a> 
+                        </th>                  
+                    </thead>
+                    <tbody>
+                        {{#each clientes}}
+                        <tr>
+                            <td>{{ id_cliente }}</td>
+                            <td>
+                            <a href="/vehiculos/dis/{{ id_cliente }}" onclick="" title="Mostrar Vehículos de Cliente">{{ nombre }} </td>
+                            </td>
+                            <td>{{ direccion }}</td>
+                            <td>{{ telefono }}</td>
+                            <td>{{ celular }}</td>
+                            <td align="center"> 
+                            
+                            <a href="/clientes/edit/{{ id_cliente }}" onclick="" title="Editar registro" class="btn btn-info btn-sm"> 
+                            <i class="far fa-edit"></i>
+                            </a>    
+                            <a onclick="return BorrarCliente({{id_cliente}})" title="Borrar Registro" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></a>                          
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+//proceso buscar
+const frmCliente = document.querySelector('#frmBC');
+const btnBuscar = document.querySelector('#btnBuscar');
+
+const filtrar = () => {
+    console.log(frmCliente.value);
+    const busqueda = frmCliente.value.toLowerCase();
+    const clientes = await pool.query('SELECT id_cliente, nombre, direccion, telefono, celular FROM clientes WHERE nombre like '%busqueda%');
+}
+
+btnBuscar.addEventListener('click', filtrar)
+</script>

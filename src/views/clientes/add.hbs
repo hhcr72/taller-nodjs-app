@@ -1,0 +1,157 @@
+<!-- validaciones -->
+<script>
+function habilita(value) {
+    if (value == true){
+        //document.getElementById("nom_fac").disabled = true;
+        document.getElementById("fac").hidden = true;
+    }else if (value == false){
+        //document.getElementById("nom_fac").disabled = false;
+        document.getElementById("fac").hidden = false;
+        document.getElementById("nom_fac").value = "";
+        document.getElementById("dir_fac").value = "";
+        document.getElementById("col_fac").value = "";
+        document.getElementById("ciu_fac").value = "";
+        document.getElementById("tel_fac").value = "";
+        document.getElementById("cp_fac").value = "";
+    }
+}
+
+</script>
+
+
+<!-- formulario de alta de clientes -->
+<div class="container">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" id="alta">
+                    <h3 class="modal-title"> Alta de Nuevo Cliente</h3> 
+                  <!--  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>     -->       
+                </div>
+                <div class="modal-body">
+                    <form id="form-clientes" action="/clientes/add" method="POST"> 
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col" >
+                                    Nombre:
+                                    <input id="nombre" type="text" minlength="3" class="form-control" name="nombre" required title="Nombre cliente" autofocus>
+                                </div>
+                                <div class="col">
+                                    Dirección:
+                                    <input id="direccion" type="text" class="form-control" name="direccion" title="Dirección">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col">
+                                    Colonia:
+                                    <input id="colonia" type="text" class="form-control" name="colonia"  title="Colonia">
+                                </div>
+                                <div class="col">
+                                    Ciudad:
+                                    <input id="ciudad" type="text" class="form-control" name="ciudad"  title="Ciudad">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col">
+                                    CP:
+                                    <input id="cp" type="text" pattern="[0-9]{5}" class="form-control" name="cp" title="C.P.(#####)">
+                                </div>
+                                <div class="col">
+                                    Teléfono:
+                                    <input id="telefono" type="text" class="form-control" name="telefono"  title="Telefono Ej. (4441055215)">
+                                </div>
+                                <div class="col">
+                                    Celular:
+                                    <input id="celular" type="text" class="form-control" name="celular" required  title="Celular Ej. (4441055215)">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col">
+                                RFC:
+                                <input type="text" pattern="^(([ÑA-Z|ña-z|&]{3}|[A-Z|a-z]{4})\d{2}((0[1-9]|1[012])(0[1-9]|1\d|2[0-8])|(0[13456789]|1[012])(29|30)|(0[13578]|1[02])31)(\w{2})([A|a|0-9]{1}))$|^(([ÑA-Z|ña-z|&]{3}|[A-Z|a-z]{4})([02468][048]|[13579][26])0229)(\w{2})([A|a|0-9]{1})$" class="form-control" name="rfc_fac" title="RFC Ej. ABE980416LS8">
+                                </div>
+                                <div class="col">
+                                    <p></p>
+                                    <p><label><input id="datfac" onchange="habilita(this.checked)" type="checkbox" name="datfac" checked > Utilizar estos mismos datos para facturación</label></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="fac" class="card-fac" hidden>
+                            <div class="row">
+                                <div class="col col-15 text-center">
+                                    <h5 class="card-tilte">Datos de Facturación</h5>
+                                </div>                         
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        Nombre:
+                                        <input type="text" class="form-control" id="nom_fac" name="nom_fac" title="Nombre de facturación de cliente (facturación)" >
+                                    </div>
+                                    <div class="col">
+                                        Dirección:
+                                        <input type="text" class="form-control" name="dir_fac"  title="Dirección de facturación">
+                                    </div>
+                                </div>
+                                </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        Colonia:
+                                        <input type="text" class="form-control" name="col_fac"  title="Colonia de facturación">
+                                    </div>
+                                    <div class="col">
+                                        Ciudad:
+                                        <input type="text" class="form-control" name="ciu_fac" title="Ciudad de facturación">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                
+                                    <div class="col">
+                                        CP:
+                                        <input type="text" pattern="[0-9]{5}" class="form-control" name="cp_fac" title="C.P.(#####)">
+                                    </div>
+                                    <div class="col">
+                                        Teléfono:
+                                        <input type="text" class="form-control" name="tel_fac" title="Telefono">
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                     
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col">
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                 <div class="col">
+                                     Observaciones:
+                                    <textarea name="obs" id=""  rows="2" class="form-control" title="Observaciones"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" onclick="window.location = '/clientes/'" >Cancelar</button>  
+                            <button  class="btn btn-primary">Guardar</button>       
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>

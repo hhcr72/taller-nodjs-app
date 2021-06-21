@@ -1,0 +1,45 @@
+<script>
+function comprobarClave(){
+    pass1 = document.fc.password.value
+    pass2 = document.f1.password2.value
+
+    if (pass1 == pass2)
+       alert("Las dos claves son iguales...\nRealizaríamos las acciones del caso positivo")
+    else
+       alert("Las dos claves son distintas...\nRealizaríamos las acciones del caso negativo")
+}
+</script>
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h4>Registro de Usuario al Sistema</h4>
+                </div>
+                <div class="card-body">
+                    <form action="/signup" method="POST" name="fc" class="formulario" id="formulario" >
+                        <div class="form-group">
+                            <input type="text" name="fullname" placeholder="Nombre completo" class="form-control" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="username" placeholder="Ingresa tu usuario" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="password" name="password" placeholder="Contraseña" class="form-control">
+                        </div>
+                          <div class="form-group">
+                            <input type="password" id="password2" name="password2" placeholder="Repite Contraseña" class="form-control">
+                        </div>
+                        <div class="div"></div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block" onClick="comprobarClave()">
+                                Registrar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

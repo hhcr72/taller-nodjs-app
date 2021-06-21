@@ -1,0 +1,92 @@
+body {
+    background: #fbfdfdx;
+    font-size: 14px;
+    font-family: 'Oxygen', san-serif;
+    
+}
+
+.h3 {
+    font-family: 'Oxygen', san-serif;
+}
+.index {
+    width: 100vw;
+    height: 100vh;
+}
+
+.masthead {
+    color: rgb(5, 5, 5);
+    min-height: 30rem;
+    width: 100%;
+    height: 100%;
+    padding-top: 2rem;
+    background: url('/img/fondoa.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.masthead h1 {
+    color: white;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+}
+.masthead h3 {
+    color: green;
+    font: 'Oxigen', san-serif;
+}
+
+@media (min-width: 1000px) {
+    .masthead h1 {
+        font-size: 3rem;
+    }
+}
+
+/*ventanas modal*/
+.modal-header {
+    background-color: #6e9af8;
+}
+.modal-body {
+    background-image: linear-gradient(#8685856c, #ffffff67);;
+/*    background-color: #8685856c;*/
+}
+.card-fac {
+    border-style: groove;
+    border-radius: 5px 5px;
+    /*box-shadow: 10px 10px 5px #aaaaaa;*/
+}
+
+.card {
+    box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+
+
+/*estilo tabla*/
+table th {
+    background-color: #E8E8E8 !important;
+    color: white;
+}
+table td {
+    font-size: 11px;
+}
+
+table>tbody>tr>td {
+   vertical-align: middle !important;
+}
+
+/*barra navegacion */
+.navbar {
+    background-color: #8685856c;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 14px;
+   /* box-shadow: 10px 10px 5px #aaaaaa;*/
+}
+.dropdown-menu {
+    opacity: 0.8;
+}
+
+.main_nav {
+    /*font-size: 20px;*/
+    font-family: 'Oxigen', san-serif;
+}

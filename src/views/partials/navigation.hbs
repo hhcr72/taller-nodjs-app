@@ -1,0 +1,78 @@
+<nav class="navbar navbar-expand-lg navbar-light ">
+	<div class="container">
+
+		<a class="navbar-brand" href="/">
+			<img src="/img/logo.png" width="60" height="60" alt="">
+		</a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="main_nav">
+			<div class="navbar-nav ">
+				{{#if user}}
+
+				<ul class="navbar-nav">
+					<span class="navbar-text">
+						<h5><b>Sistema de Taller</b></h5> {{ user.fullname }}
+					</span>
+			</div>
+
+			<div class="navbar-nav ml-auto">
+
+				<li class="nav-item dropdown">
+					<a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Maestros <i
+							class="fas fa-bars"></i> </a>
+					<ul class="dropdown-menu fade-up">
+						<li><a class="dropdown-item" href="/clientes"><i class="fas fa-user"></i> Clientes</a></li>
+						<li><a class="dropdown-item" href="/vehiculos"><i class="fas fa-car"></i> Vehículos</a></li>
+					</ul>
+				</li>
+
+				<li class="nav-item dropdown">
+					<a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Reportes <i
+							class="far fa-clipboard"></i> </a>
+					<ul class="dropdown-menu fade-up">
+					</ul>
+				</li>
+
+				{{!-- <li class="nav-item dropdown">
+					<a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Liks </a>
+					<ul class="dropdown-menu fade-up">
+						<li><a class="dropdown-item" href="/links"> Todos los Links</a></li>
+						<li><a class="dropdown-item" href="/links/add"> Agregar Link </a></li>
+					</ul>
+				</li>--}}
+
+				<li class="nav-item dropdown">
+					<a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Perfiles <i
+							class="fas fa-users"></i> </a>
+					<ul class="dropdown-menu fade-up">
+						<li><a class="dropdown-item" href="/profile"><i class="far fa-user"></i> {{ user.username }}
+							</a></li>
+						<li><a class="dropdown-item" href="/signup"><i class="fas fa-user-plus"></i> Registrar Nuevo
+								Usuario </a></li>
+					</ul>
+				</li>
+
+				<li>
+					<hr class="dropdown-divider">
+				</li>
+				<li class="nav-item">
+					<a href="/logout" class="nav-link"> Salir <i class="fas fa-door-closed"> </i></a>
+				</li>
+
+				{{else}}
+
+				<li class="nav-item1 ml-auto">
+					<a href="/signin" class="nav-link">Iniciar Session</a>
+				</li>
+
+				{{/if}}
+				</ul>
+			</div>
+		</div> <!-- navbar-collapse.// -->
+
+	</div>
+</nav>
