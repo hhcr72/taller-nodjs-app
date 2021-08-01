@@ -1,78 +1,77 @@
-<nav class="navbar navbar-expand-lg navbar-light ">
-	<div class="container">
+<nav class="navbar navbar-expand-sm navbar-dark " style="background-color: darkcyan;">
+    <div class="container">
+        <a href="#" class="navbar navbar-brand mb-8 h1">
+            <img src="/img/logo.png" width="40" height="40"></a>
+        <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="div collapse navbar-collapse" id="navbarNav">
 
-		<a class="navbar-brand" href="/">
-			<img src="/img/logo.png" width="60" height="60" alt="">
-		</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="/">
+                        <i class="fa fa-home" aria-hidden="true"></i>&nbsp; Inicio</a>
+                </li>
 
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
-			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="main_nav">
-			<div class="navbar-nav ">
-				{{#if user}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/about"><i class="fa fa-info" aria-hidden="true"></i> &nbsp;Acerca de</a>
+                </li>
+            </ul>
 
-				<ul class="navbar-nav">
-					<span class="navbar-text">
-						<h5><b>Sistema de Taller</b></h5> {{ user.fullname }}
-					</span>
-			</div>
+            
+            <ul class="navbar-nav ms-auto">
+            {{#if user}}    
+                <class class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-bars" aria-hidden="true"></i>
+                        Maestros
+                    </a>
 
-			<div class="navbar-nav ml-auto">
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/clientes">Clientes</a></li>
+                        <li><a class="dropdown-item" href="/vehiculos">Vehiculos</a></li>
+                    </ul>
+                </class>
 
-				<li class="nav-item dropdown">
-					<a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Maestros <i
-							class="fas fa-bars"></i> </a>
-					<ul class="dropdown-menu fade-up">
-						<li><a class="dropdown-item" href="/clientes"><i class="fas fa-user"></i> Clientes</a></li>
-						<li><a class="dropdown-item" href="/vehiculos"><i class="fas fa-car"></i> Vehículos</a></li>
-					</ul>
-				</li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"> <i class="far fa-clipboard"
+                            aria-hidden="true"></i>
+                        Reportes
+                    </a>
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item" href="#">Reporte 1</a></li>
+                        <li><a class="dropdown-item" href="#">Reporte 2</a></li>
+                    </ul>
+                </li>
 
-				<li class="nav-item dropdown">
-					<a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Reportes <i
-							class="far fa-clipboard"></i> </a>
-					<ul class="dropdown-menu fade-up">
-					</ul>
-				</li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"> <i class="fa fa-address-card"
+                            aria-hidden="true"></i>
+                        Perfiles
+                    </a>
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item" href="/profile"><b>Usuario: </b>{{ user.username }}</a></li>
+                        <li><a class="dropdown-item" href="/signup"> Registrar Nuevo Usuario</a></li>
+                    </ul>
+                </li>
 
-				{{!-- <li class="nav-item dropdown">
-					<a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Liks </a>
-					<ul class="dropdown-menu fade-up">
-						<li><a class="dropdown-item" href="/links"> Todos los Links</a></li>
-						<li><a class="dropdown-item" href="/links/add"> Agregar Link </a></li>
-					</ul>
-				</li>--}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link" onclick="salirSistema()" href="#"><i class="fas fa-door-closed"> </i>Salir</a>
+                </li>
+            
 
-				<li class="nav-item dropdown">
-					<a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Perfiles <i
-							class="fas fa-users"></i> </a>
-					<ul class="dropdown-menu fade-up">
-						<li><a class="dropdown-item" href="/profile"><i class="far fa-user"></i> {{ user.username }}
-							</a></li>
-						<li><a class="dropdown-item" href="/signup"><i class="fas fa-user-plus"></i> Registrar Nuevo
-								Usuario </a></li>
-					</ul>
-				</li>
-
-				<li>
-					<hr class="dropdown-divider">
-				</li>
-				<li class="nav-item">
-					<a href="/logout" class="nav-link"> Salir <i class="fas fa-door-closed"> </i></a>
-				</li>
-
-				{{else}}
-
-				<li class="nav-item1 ml-auto">
-					<a href="/signin" class="nav-link">Iniciar Session</a>
-				</li>
-
-				{{/if}}
-				</ul>
-			</div>
-		</div> <!-- navbar-collapse.// -->
-
-	</div>
+            {{ else }}
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="/signin"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;
+                   <i class="fas fa-door-open"> </i> Iniciar</a>
+            </li>
+            {{/if}}
+            
+            </ul>   
+           
+        </div>
+    </div>
 </nav>

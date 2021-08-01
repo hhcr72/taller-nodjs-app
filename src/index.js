@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 const morgan = require('morgan');
 const flash = require('connect-flash');
 const exphbs = require('express-handlebars');
@@ -16,6 +17,7 @@ const app = express();
 require('./lib/passport');
 
 
+
 //settings
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
@@ -26,7 +28,6 @@ app.engine('.hbs', exphbs({
     extname: '.hbs',
     helpers: require('./lib/handlebars')
 }));
-
 app.set('view engine', '.hbs');
 
 //middlewares 
@@ -57,13 +58,13 @@ app.use((req, res, next) => {
 app.use(require('./routes/index'));
 app.use(require('./routes/authentication'));
 app.use('/auth', require('./routes/authentication'));
-//app.use('/links', require('./routes/links'));
 app.use('/clientes', require('./routes/clientes'));
 app.use('/vehiculos', require('./routes/vehiculos'));
 
 
 //public
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'js')))
 
 //start server
 app.listen(app.get('port'), () => {

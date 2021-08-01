@@ -33,7 +33,8 @@
                         <th>Telefono</th>
                         <th>Celular</th>
                         <th>Sub-Menu 
-                            <a href="/clientes/add" title="Nuevo Registro" class="btn btn-primary btn-sm"><i class="far fa-plus-square"></i></a> 
+
+                            <a href="/clientes/add" title="Nuevo Registro" class=""> <box-icon type='solid' name='message-square-add'></box-icon></i></a> 
                         </th>                  
                     </thead>
                     <tbody>
@@ -48,10 +49,10 @@
                             <td>{{ celular }}</td>
                             <td align="center"> 
                             
-                            <a href="/clientes/edit/{{ id_cliente }}" onclick="" title="Editar registro" class="btn btn-info btn-sm"> 
-                            <i class="far fa-edit"></i>
+                            <a href="/clientes/edit/{{ id_cliente }}" onclick="" title="Editar registro" > 
+                            <box-icon type='solid' name='edit'></box-icon>
                             </a>    
-                            <a onclick="return BorrarCliente({{id_cliente}})" title="Borrar Registro" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></a>                          
+                            <a href="#" onclick="return BorrarCliente({{id_cliente}})" title="Borrar Registro"><box-icon type='solid' name='trash' class=""></box-icon></a>                          
                             </td>
                         </tr>
                         {{/each}}
@@ -64,7 +65,7 @@
 
 
 
-<script>
+{{!-- <script>
 //proceso buscar
 const frmCliente = document.querySelector('#frmBC');
 const btnBuscar = document.querySelector('#btnBuscar');
@@ -76,4 +77,4 @@ const filtrar = () => {
 }
 
 btnBuscar.addEventListener('click', filtrar)
-</script>
+</script> --}}

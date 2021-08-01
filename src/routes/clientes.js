@@ -15,7 +15,7 @@ router.get('/add', isLoggedIn, (req, res) => {
 
 //muestra clientes
 router.get('/', isLoggedIn, async (req, res) => {
-    const clientes = await pool.query('SELECT id_cliente, nombre, direccion, telefono, celular FROM clientes order by nombre');
+    const clientes = await pool.query('SELECT id_cliente, nombre, direccion, telefono, celular FROM clientes order by nombre limit 100');
     res.render('clientes/listar', { clientes });
     //res.render('clientes/listar', '');
 });

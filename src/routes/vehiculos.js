@@ -6,7 +6,7 @@ const { isLoggedIn } = require('../lib/auth');
 
 //muestra vehiculos
 router.get('/', isLoggedIn, async (req, res) => {
-    const vehiculos = await pool.query('SELECT vehiculos.*, clientes.nombre FROM vehiculos inner join clientes on vehiculos.id_cliente = clientes.id_cliente order by clientes.id_cliente');
+    const vehiculos = await pool.query('SELECT vehiculos.*, clientes.nombre FROM vehiculos inner join clientes on vehiculos.id_cliente = clientes.id_cliente order by clientes.id_cliente limit 100');
     res.render('vehiculos/vehiculos', { vehiculos });
 });
 
