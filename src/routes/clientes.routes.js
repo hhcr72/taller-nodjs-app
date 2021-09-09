@@ -1,34 +1,42 @@
 const express = require('express');
-const {
-    listenerCount
-} = require('../database');
+const { listenerCount } = require('../database');
 const router = express.Router();
 const pool = require('../database');
-const {
-    isLoggedIn
-} = require('../lib/auth');
+const { isLoggedIn } = require('../lib/auth');
+const { validationDelete } = require('../lib/validations');
 
 //muestra formulario de captura de cliente
 router.get('/add', isLoggedIn, (req, res) => {
     res.render('clientes/add');
 });
 
-//muestra clientes
+//muestra busqueda de clientes
 router.get('/', isLoggedIn, async (req, res) => {
-    const clientes = await pool.query('SELECT id_cliente, nombre, direccion, telefono, celular FROM clientes order by nombre limit 100');
-    res.render('clientes/listar', { clientes });
-    //res.render('clientes/listar', '');
+    const clientes = [];
+    res.render('clientes/listar', {clientes});
 });
 
+//muestra clientes filtro
+router.get('/search/:valor_busqueda', isLoggedIn, async (req, res) => {
+    const {valor_busqueda} = req.params;
+    const clientes = await pool.query('SELECT * FROM clientes where id_cliente like "'+ [valor_busqueda] + '%" or nombre like "%'+ [valor_busqueda] + '%" order by nombre desc');
+    if (clientes.length === 0) { 
+        
+        //alert_busqueda_vacia();
+        //alertify.success('Ok') 
+        req.flash('success', 'La busqueda esta vacia');
+        res.redirect('/clientes');
+    } else {
+        res.render('clientes/listar', { clientes });
+    }
+});
+
+
 //borra cliente
-router.get('/delete/:id', isLoggedIn, async (req, res) => {
-    //console.log('cliente borrado');
-    const {
-        id
-    } = req.params;
-    //console.log(id);
+router.get('/delete/:id', isLoggedIn, validationDelete, async (req, res, next) => {
+    const {id} = req.params;
     await pool.query('DELETE FROM clientes WHERE id_cliente = ?', [id]);
-    //req.flash('success', 'Enlace Borrado correctamente');
+    req.flash('success', 'Cliente eliminado correctamente hh');
     res.redirect('/clientes');
 });
 
@@ -73,7 +81,7 @@ router.post('/add', isLoggedIn, async (req, res) => {
     };
 
     await pool.query('INSERT INTO clientes set ?', [nuevoCliente]);
-    req.flash('success', 'Enlace Guardado correctamente');
+    req.flash('success', 'Cliente Guardado correctamente');
     res.redirect('/clientes');
 });
 

@@ -1,28 +1,39 @@
-  {{#if success }}
-        <div class="container p-4"> 
-            <div class="row">
-                <div class="col-md-4 mx-auto">
-                    <div class="alert alert-success alert-dismisseble fade show text-center" role="alert">
-                        {{ success }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                </div>
-            </div>
+{{#if success}}
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-md-4 mx-auto">
+        <div class="alert alert-success alert-dismisseble fade show text-center">
+          {{success}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close" > &times;</button>
         </div>
-    {{/if}}
+      </div>
+    </div>
+  </div>
+{{/if}}
 
-      {{#if message }}
-        <div class="container p-4"> 
-            <div class="row">
-                <div class="col-md-4 mx-auto">
-                    <div class="alert alert-danger alert-dismisseble fade show text-center" role="alert">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {{/if}}
-
-
+{{#if message}}
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-md-4 mx-auto">
+        <div class="alert alert-danger alert-dismissible fade show text-center">
+          {{message}}
     
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close" >&times;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}
+
+{{#each errors}}
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-md-4 mx-auto">
+        <div class="alert alert-danger alert-dismisseble fade show text-center" >
+          {{text}}
+          <button type="button" class="close" data-bs-dismiss="alert" >&times;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/each}}

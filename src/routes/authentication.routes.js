@@ -4,14 +4,13 @@ const passport = require('passport');
 const router = express.Router();
 const pool = require('../database');    
 
-const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
-
+const { isLoggedIn, isNotLoggedIn, validatingData } = require('../lib/auth');
 
 router.get('/signup', isLoggedIn,  (req, res) => {
     res.render('auth/signup');
 });
 
-router.post('/signup', isLoggedIn, passport.authenticate('local.signup', {
+ router.post('/signup', isLoggedIn, validatingData, passport.authenticate('local.signup', {
     successRedirect: '/profile',
     failureRedirect: '/signup', 
     failureFlash: true

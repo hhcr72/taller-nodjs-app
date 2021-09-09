@@ -1,4 +1,4 @@
-<!-- validaciones -->
+<!-- valida si utiliza los mismos datos para facturacion-->
 <script>
 window.onload = function activa() {
     valor  = '{{ cliente.datfac }}';   
@@ -6,23 +6,7 @@ window.onload = function activa() {
         document.getElementById("datfac").checked = true;
         document.getElementById("fac").hidden = true;
     }
-}
-
-function habilita(value) {
-    if (value == true){
-        //document.getElementById("nom_fac").disabled = true;
-        document.getElementById("fac").hidden = true;
-    }else if (value == false){
-        //document.getElementById("nom_fac").disabled = false;
-        document.getElementById("fac").hidden = false;
-        document.getElementById("nom_fac").value = "";
-        document.getElementById("dir_fac").value = "";
-        document.getElementById("col_fac").value = "";
-        document.getElementById("ciu_fac").value = "";
-        document.getElementById("tel_fac").value = "";
-        document.getElementById("cp_fac").value = "";
-    }
-}
+} 
 </script>
 
 <!-- formulario de modificacion de clientes -->
@@ -30,7 +14,7 @@ function habilita(value) {
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header ">
-                    <h3> Modificación de Cliente / ID: {{ cliente.id_cliente }} </h3>
+                    <h5> Modificación de Cliente / ID: {{ cliente.id_cliente }} </h5>
                 </div>
                 <div class="modal-body">
                     <form id="form-clientes" action="/clientes/edit/{{ cliente.id_cliente }}" method="POST"> 
@@ -70,7 +54,7 @@ function habilita(value) {
                                 </div>
                                 <div class="col">
                                     Celular:
-                                    <input id="celular" type="text" class="form-control" name="celular" required  value="{{ cliente.celular }}" title="Celular Ej. (4441055215)">
+                                    <input id="celular" type="text" class="form-control" name="celular"  value="{{ cliente.celular }}" title="Celular Ej. (4441055215)">
                                 </div>
                             </div> 
                         </div>
@@ -151,7 +135,7 @@ function habilita(value) {
                                          
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" onclick="window.location = '/clientes/'">Cancelar</button>  
+                            <a href="/clientes/" class="btn btn-secondary">Cancelar</a>
                             <button  class="btn btn-primary">Guardar</button>       
                         </div>
                     </form>

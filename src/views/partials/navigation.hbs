@@ -1,77 +1,172 @@
-<nav class="navbar navbar-expand-sm navbar-dark " style="background-color: darkcyan;">
-    <div class="container">
-        <a href="#" class="navbar navbar-brand mb-8 h1">
-            <img src="/img/logo.png" width="40" height="40"></a>
-        <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="div collapse navbar-collapse" id="navbarNav">
 
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="/">
-                        <i class="fa fa-home" aria-hidden="true"></i>&nbsp; Inicio</a>
-                </li>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="/">Ayala Transmisiones - Taller</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav"> 
+        <li class="nav-item">
+            <a class="nav-link" href="/">
+            <span class="material-icons md-24 align-middle">home</span>
+            Inicio</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+     {{#if user}} 
+    <!-- Dropdown maestros-->
+    <li class="nav-item dropdown">
+     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        <span class="material-icons md-24 align-middle">line_weight</span>
+        Maestros
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="/clientes">Clientes</a>
+        <a class="dropdown-item" href="/vehiculos">Vehiculos</a>
+      </div> 
+    
+    <!-- Dropdown reportes-->
+    <li class="nav-item dropdown">
+     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        <span class="material-icons md-24 align-middle">list_alt</span>
+        Reportes
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Rep 1</a>
+        <a class="dropdown-item" href="#">Rep 2</a>
+      </div>    
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/about"><i class="fa fa-info" aria-hidden="true"></i> &nbsp;Acerca de</a>
-                </li>
-            </ul>
 
-            
-            <ul class="navbar-nav ms-auto">
-            {{#if user}}    
-                <class class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-bars" aria-hidden="true"></i>
-                        Maestros
-                    </a>
+    <!-- Dropdown perfiles-->
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    <span class="material-icons md-24 align-middle">contact_mail</span>
 
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/clientes">Clientes</a></li>
-                        <li><a class="dropdown-item" href="/vehiculos">Vehiculos</a></li>
-                    </ul>
-                </class>
+        Perfiles
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="/signup">Nuevo Usuario de sistema </a>
+      </div>    
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false"> <i class="far fa-clipboard"
-                            aria-hidden="true"></i>
-                        Reportes
-                    </a>
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="#">Reporte 1</a></li>
-                        <li><a class="dropdown-item" href="#">Reporte 2</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false"> <i class="fa fa-address-card"
-                            aria-hidden="true"></i>
-                        Perfiles
-                    </a>
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="/profile"><b>Usuario: </b>{{ user.username }}</a></li>
-                        <li><a class="dropdown-item" href="/signup"> Registrar Nuevo Usuario</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link" onclick="salirSistema()" href="#"><i class="fas fa-door-closed"> </i>Salir</a>
-                </li>
-            
-
-            {{ else }}
-            <li class="nav-item dropdown">
-                <a class="nav-link" href="/signin"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;
-                   <i class="fas fa-door-open"> </i> Iniciar</a>
-            </li>
-            {{/if}}
-            
-            </ul>   
-           
-        </div>
-    </div>
+        <li class="nav-item">
+        <a class="nav-link" href="/profile">
+        <span class="material-icons md-24 align-middle">person_outline</span>
+        {{user.fullname}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="salirSistema()">
+        <span class="material-icons md-24 align-middle">logout</span>   
+        Cerrar Session</a>
+      </li>
+      {{ else }}
+      <li class="nav-item">  
+        <a class="nav-link" href="/signin">
+        <span class="material-icons md-24 align-middle">login</span>
+        Iniciar Session</a>
+      </li>   
+       {{/if}}
+    </ul>
+    
+  </div>  
 </nav>
+
+
+
+
+
+
+
+
+ {{!-- <script src="">
+     $(document).ready(function () {
+  $('.leftmenutrigger').on('click', function (e) {
+    $('.side-nav').toggleClass("open");
+    $('#wrapper').toggleClass("open");
+    e.preventDefault();
+  });
+});
+ </script>
+
+ <div id="wrapper" class="animate">
+    <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <span class="navbar-toggler-icon leftmenutrigger"></span>
+      <a class="navbar-brand" href="/">Ayala Transmisiones Automáticas </a>
+     
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav animate side-nav">
+
+        <li class="nav-item dropdown" title="Menu Maestros">
+            <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+            <i class="fa fa-tasks fa-2x" aria-hidden="true"></i>
+             Maestros
+            <i class="fa fa-tasks fa-2x shortmenu animate"  aria-hidden="true"></i>
+            </a>
+        
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <p align="center"><b>- Menu Maestros -</b></p>
+                <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/clientes">Clientes</a>
+            <a class="dropdown-item" href="/vehiculos">Vehiculos</a>
+            </div>
+
+        </li>
+
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+            <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+             Reportes 
+            <i class="fa fa-bars shortmenu animate fa-2x" aria-hidden="true"></i>
+            </a>
+        
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <p align="center"><b>- Menu Maestros -</b></p>
+                <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/clientes">Clientes</a>
+            <a class="dropdown-item" href="/vehiculos">Vehiculos</a>
+            </div>
+
+        </li>
+          
+        <li class="nav-item">
+            <a class="nav-link" href="#" title="Acerda de">
+            <i class="fas fa-info-circle fa-2x"></i> 
+            Acerca de
+            <i class="fas fa-info-circle shortmenu animate fa-2x"></i></a>
+          </li>
+
+        </ul>
+
+
+        <ul class="navbar-nav ml-md-auto d-md-flex">
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-address-card" aria-hidden="true"></i>
+             Perfiles 
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/profile">Registrar Nuevo Usyuario</a>
+            </div>
+
+        </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-user"></i> Usuario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="salirSistema()"><i class="fa fa-sign-out"></i> Salir</a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+  </div> --}}

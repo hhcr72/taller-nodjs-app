@@ -21,7 +21,7 @@ pool.getConnection((err, connection) => {
     }
 
     if (connection) connection.release();
-    console.log('BD esta conectada');
+        console.log('BD esta conectada');
     return;
 });
 

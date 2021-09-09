@@ -16,23 +16,26 @@ $(document).ready(function () {
             "loadingRecords": "Cargando...",
             "infoThousands": ",",
         },
-        dom: 'Bfrtpil',
+        //dom: 'frBtpil',
+        dom: 'Birtpl',
+
+        
         buttons: [
             {
                 extend: 'excelHtml5',
-                text: '<i class="fas fa-file-excel"></i>',
+                text: '<img src="/img/excel-24.png">',
                 titleAttr: 'Exportar a Excel',
                 className: 'btn btn-succes'
             },
             {
                 extend: 'pdfHtml5',
-                text: '<i class="fas fa-file-pdf"></i>',
+                text: '<img src="/img/pdf-24.png">',
                 titleAttr: 'Exportar a PDF',
                 className: 'btn btn-danger'
             },
             {
                 extend: 'print',
-                text: '<i class="fas fa-print"></i>',
+                text: '<img src="/img/print-24.png">',
                 titleAttr: 'Imprimir',
                 className: 'btn btn-info'
             }]

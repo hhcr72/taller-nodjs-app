@@ -1,12 +1,21 @@
 <div class="container p-4">
     <div class="row">
-        <div class="col-md-4 mx-auto">
-            <div class="card bg-primary">
-                <div class="card-body">
-                    <h6>Usuario: {{ user.username }} </h6>
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-header text-center">
+                   <h5> Datos de Usuario</h5>
                 </div>
-                <div class="card-body text-center bg-light">
-                    <h5>Bienvenid@ </h5>
+
+                <div class="card-body">
+                    <h6> <b> Nombre de Usuario: </b></h6>
+                </div>
+                <div class="card-body text-center" >
+                    <h6> {{ user.username }} </h6>
+                </div>
+                <div class="card-body">
+                    <h6> <b> Nombre: </b></h6>
+                </div>
+                <div class="card-body text-center">
                     <h5> {{ user.fullname }} </h5>
                 </div>
             </div>

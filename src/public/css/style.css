@@ -1,44 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+.main {
+    height: 100vh;
+    padding: 2em;
+}
+
 body {
-    background: #8e9eab;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-     
-    
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
+    min-height: 200vh; 
+    background-image: linear-gradient(#8685856c, #ffffff67);;
 }
 
-.h3 {
-    font-family: 'Oxygen', san-serif;
-}
-.index {
-    width: 100vw;
-    height: 100vh;
-}
+
 
 .masthead {
-    color: rgb(5, 5, 5);
+    color: white;
     min-height: 30rem;
     width: 100%;
     height: 100%;
     padding-top: 2rem;
     background: url('/img/fondoa.png');
     background-position: center center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
 }
 
-.masthead h1 {
-    color: white;
-    font-size: 2rem;
-    margin: 0;
-    padding: 0;
-}
-.masthead h3 {
-    color: green;
-    /* font: 'Oxigen', san-serif; */
-}
+
 
 @media (min-width: 1000px) {
     .masthead h1 {
@@ -46,14 +33,18 @@ body {
     }
 }
 
-/*ventanas*/
+/*formularios*/
 .modal-header {
-    background-color: #6e9af8;
+    background: darkslategrey;
+    color: darkgrey;
 }
 .modal-body {
     background-image: linear-gradient(#8685856c, #ffffff67);;
-/*    background-color: #8685856c;*/
 }
+
+
+
+/*cards */
 .card-fac {
     border-style: groove;
     border-radius: 5px 5px;
@@ -61,40 +52,36 @@ body {
 }
 
 .card {
-    box-shadow: 10px 10px 5px #aaaaaa;
+    background-image: linear-gradient(#8685856c, #ffffff67);;
 }
 .card-header {
-    background: #007991;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #78ffd6, #007991);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #78ffd6, #007991); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
+    background: darkslategrey;
+    color: darkgrey;
 
 }
 
 
+/* navegador */
+.navbar {
+    z-index: 100000;
+    filter:alpha(opacity=70);
+    -moz-opacity:.50;
+    opacity:.9; 
+
+}
+
+.dropdown-menu {
+    opacity: 0.9;
+    font-size: 14px;
+} 
 
 /*estilo tabla*/
-table th {
-    background-color: #007991 !important;
-    color: white;
-}
-table td {
-    font-size: 11px;
-}
+/* table th {
+    background: darkgray  !important;
+    colo
+    table>tbody>tr>td {
+    vertical-align: middle !important; 
 
-table>tbody>tr>td {
-   vertical-align: middle !important;
-}
+}*/
 
-/*barra navegacion */
-.navbar {
-   
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    
-}
-.dropdown-menu {
-    opacity: 0.8;
-    font-size: 14px;
-}
 

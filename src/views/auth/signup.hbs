@@ -1,45 +1,44 @@
-<script>
-function comprobarClave(){
-    pass1 = document.fc.password.value
-    pass2 = document.f1.password2.value
 
-    if (pass1 == pass2)
-       alert("Las dos claves son iguales...\nRealizaríamos las acciones del caso positivo")
-    else
-       alert("Las dos claves son distintas...\nRealizaríamos las acciones del caso negativo")
-}
-</script>
 
 <div class="container p-4">
     <div class="row">
         <div class="col-md-6  mx-auto">
             <div class="card text-center">
-                <div class="card-header">
-                    <h4>Registro de Usuario</h4>
+                <div class="card-header ">
+                    <h5>Registro de Usuario</h5>
                 </div>
                 <div class="card-body">
-                    <form action="/signup" method="POST" name="fc" class="formulario" id="formulario" >
+                    <form action="/signup" method="POST" name="fc"  class="formulario" id="formulario" >
                         <div class="mb-3">
-                            <input type="text" name="fullname" placeholder="Nombre completo" class="form-control" autofocus>
+                            <input type="text" name="fullname" value="{{fullname}}" placeholder="Nombre completo" class="form-control" autofocus required>
                         </div>
-                        <div class="mb-3">
-                            <input type="text" name="username" placeholder="Nombre de usuario" class="form-control">
+                        <div class="input-group mb-3">
+                            <input type="email" name="username" value="{{username}}" placeholder="Dirección de Correo" class="form-control" required>
+                            <div class="input-group-text">@</div>
+                            
+            
                         </div>
-                        <div class="mb-3">
-                            <input type="password" id="password" name="password" placeholder="Contraseña" class="form-control">
+
+                        <div class="input-group mb-3">
+                            <input type="password" id="password" name="password"  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}" placeholder="Contraseña" class="form-control" required>
+                            <button id="show_password" class="btn btn-primary" type="button" onclick="mPassword('password')"> <span class="fa fa-eye-slash password"></span> </button>
                         </div>
-                          <div class="mb-3">
-                            <input type="password" id="password2" name="password2" placeholder="Repite Contraseña" class="form-control">
+
+                        <div class="input-group mb-3">
+                            <input type="password" id="password2"  name="password2" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}" placeholder="Confirma Contraseña" class="form-control" required>
+                            <button id="show_password2" class="btn btn-primary" type="button" onclick="mPassword('password2')"> <span class="fa fa-eye-slash password2"></span> </button>
+                            <small class="text-muted">Las contraseñas debe tener al menos 8 caracteres, letras mayusculas, minúsculas, al menos un dígito y puede contener caracteres especiales</small>
                         </div>
-                        <div class="mb-3">
-                            <p>Tipo Usuario</p>
-                            <select name="usertype" class="form-select">
-                                <option value="usuario" selected>Usuario</option>
-                                <option value="administrador">Administrador</option>
+                        
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Tipo de Usuario</label>
+                            <select name="usertype" class="form-control" id="exampleFormControlSelect1">
+                                <option value="Usuario" selected>Usuario</option>
+                                <option value="Administrador">Administrador</option>
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <button class="btn btn-success btn-block" onClick="comprobarClave()">
+                        <div class="input-group mb-3">
+                            <button class="btn btn-success btn-block">
                                 Registrar
                             </button>
                         </div>
